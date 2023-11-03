@@ -32,6 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="ClassDefinitions.cpp" />
+		<Unit filename="Classes.h" />
+		<Unit filename="FunctionDefinition.cpp" />
+		<Unit filename="Functions.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1699006662 source:c:\herbert\projects\c++\hostel management system\main.cpp
+	<iostream>
+	"Classes.h"
+	"Functions.h"
+
+1699004402 c:\herbert\projects\c++\hostel management system\classes.h
+
+1699006291 source:c:\herbert\projects\c++\hostel management system\classdefinitions.cpp
+	"Classes.h"
+	"Functions.h"
+	<iostream>
+	<string>
+	<cstdlib>
+
+1699006835 c:\herbert\projects\c++\hostel management system\functions.h
+
+1699006662 source:c:\herbert\projects\c++\hostel management system\functiondefinition.cpp
+	"Functions.h"
+	<iostream>
+	<cstdlib>
+
