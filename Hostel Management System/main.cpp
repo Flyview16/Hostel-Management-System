@@ -19,8 +19,7 @@ int main()
     Systemclear();
     if(userlogin == 1)
     {
-        Student newStudent;
-        newStudent.StudentLogin();
+
         studentLogin();
     }else if(userlogin == 2)
     {

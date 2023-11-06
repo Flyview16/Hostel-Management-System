@@ -5,5 +5,6 @@ class Student
 {
 public:
     void StudentLogin();
+    void RoomTypes();
 };
 #endif // CLASSES_H_INCLUDED

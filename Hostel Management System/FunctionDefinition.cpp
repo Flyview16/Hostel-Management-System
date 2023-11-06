@@ -1,4 +1,7 @@
+// Function implementations
+
 #include "Functions.h"
+#include "Classes.h"
 #include <iostream>
 #include <cstdlib> // added to use system clear function
 
@@ -24,6 +27,8 @@ void Systemclear()
 //Student Login
 void studentLogin()
 {
+    Student newStudent;
+    newStudent.StudentLogin();
     int studentoption;
     cout << "\n\n\n\t\t\t*******************************************************************************\n" << endl;
     cout << "\t\t\t\t\t Welcome to the Student Portal!" << endl;
@@ -31,6 +36,15 @@ void studentLogin()
 
     cout << "What would you like to do?:\n 1.View Available Rooms\n 2.Book Room\n 3.View Booked Room\n 4.Exit"<< endl;
     cout << "\n Select option: "; cin >> studentoption;
+
+    switch(studentoption)
+    {
+        case 1: newStudent.RoomTypes();
+        break;
+
+        case 2: newStudent.RoomTypes();
+        break;
+    }
 
 }
 
@@ -44,6 +58,11 @@ void managerLogin()
 
     cout << "What would you like to do?:\n 1.Add Room\n 2.View Rooms\n 3.Add Student to Room\n 4.Remove Student\n 5.Exit"<< endl;
     cout << "\n Select option: "; cin >> managerOption;
+
+    switch(managerOption)
+    {
+        // Options for various selections
+    }
 
 }
 
