@@ -46,6 +46,12 @@ void studentLogin()
 
         case 2: hostel.listRoomsByType(printRoomtypes());
         break;
+
+        case 4:
+        break;
+
+        default: cout << "Please select one of the above" << endl;
+        break;
     }
 
 }

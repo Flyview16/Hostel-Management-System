@@ -56,7 +56,13 @@ string Rooms::getRoomType()
 //Hostel class methods implementation
 Hostel::Hostel()
 {
-    //Create room objects for each room type
+    initializeRooms();
+}
+
+void Hostel::initializeRooms()
+{
+     //Create room objects for each room type
+    int roomNumberCounter = 1;
     for(string& roomtype : Roomtype){
         int maxOccupants;
         double price;
@@ -65,7 +71,8 @@ Hostel::Hostel()
         //Create 3 rooms each for every room type
         for(int i =0; i<3;i++)
         {
-            Hostelrooms.push_back(Rooms(i+1, roomtype,maxOccupants, price)); //Add created rooms to vector
+            Hostelrooms.push_back(Rooms(roomNumberCounter, roomtype,maxOccupants, price)); //Add created rooms to vector
+            roomNumberCounter++;
         }
     }
 }
@@ -101,13 +108,14 @@ void Hostel::listRoomsByType(string selectedRoomtype)
     // Table columns
     cout << setw(30) << endl;
     cout << left << setw(15) << "Room Number"
-    << setw(20) << "Room Type"
+    << setw(20) << "Room Type" <<
     << setw(25) << "Current Occupants"
     << setw(15) << "Price" << endl;
 
     // Iterate through hostel rooms vector to print room details for selected room type
     for(Rooms& room : Hostelrooms)
     {
+
         if(room.getRoomType() == selectedRoomtype)
         {
             string occupantsRatio = to_string(room.getCurrentOccupants()) + "/" + to_string(room.getMaxOccupants());

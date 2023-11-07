@@ -49,6 +49,9 @@ private:
 
     //Get maximum occupants and price by room type
     void getMaxOccPrice(string& roomtype,int& maxOccupants, double&price);
+
+    // Create 3 rooms for each room type
+    void initializeRooms();
 };
 
 
