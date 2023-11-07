@@ -4,22 +4,25 @@
 	"Classes.h"
 	"Functions.h"
 
-1699274240 c:\herbert\projects\c++\hostel management system\classes.h
+1699357250 c:\herbert\projects\c++\hostel management system\classes.h
+	<string>
+	<vector>
 
-1699276831 source:c:\herbert\projects\c++\hostel management system\classdefinitions.cpp
+1699357272 source:c:\herbert\projects\c++\hostel management system\classdefinitions.cpp
 	"Classes.h"
 	"Functions.h"
 	<iostream>
 	<string>
 	<cstdlib>
-	<cstdio>
+	<iomanip>
+
+1699354209 c:\herbert\projects\c++\hostel management system\functions.h
 	<string>
 
-1699277079 c:\herbert\projects\c++\hostel management system\functions.h
-
-1699276539 source:c:\herbert\projects\c++\hostel management system\functiondefinition.cpp
+1699355939 source:c:\herbert\projects\c++\hostel management system\functiondefinition.cpp
 	"Functions.h"
 	"Classes.h"
 	<iostream>
 	<cstdlib>
+	<string>
 

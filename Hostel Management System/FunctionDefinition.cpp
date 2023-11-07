@@ -4,6 +4,7 @@
 #include "Classes.h"
 #include <iostream>
 #include <cstdlib> // added to use system clear function
+#include <string>
 
 using namespace std;
 
@@ -29,6 +30,7 @@ void studentLogin()
 {
     Student newStudent;
     newStudent.StudentLogin();
+    Hostel hostel;
     int studentoption;
     cout << "\n\n\n\t\t\t*******************************************************************************\n" << endl;
     cout << "\t\t\t\t\t Welcome to the Student Portal!" << endl;
@@ -39,10 +41,10 @@ void studentLogin()
 
     switch(studentoption)
     {
-        case 1: newStudent.RoomTypes();
+        case 1: hostel.listRoomsByType(printRoomtypes());
         break;
 
-        case 2: newStudent.RoomTypes();
+        case 2: hostel.listRoomsByType(printRoomtypes());
         break;
     }
 
@@ -62,6 +64,45 @@ void managerLogin()
     switch(managerOption)
     {
         // Options for various selections
+    }
+
+}
+
+string printRoomtypes()
+{
+    int selectedType;
+    string selectedRoomtype;
+    Hostel hostel;
+
+    string Roomtypes[] = {"One in one", "Two in one", "Three in one", "Four in one"};
+
+    cout << "\nRoomTypes:" << endl;
+
+    for(int i=0; i< 4; i++)
+    {
+        // Print  out all room types
+        cout << " \n" << i+1 << "." << Roomtypes[i];
+    }
+
+    cout << "\n\nSelect option: ";
+    cin >> selectedType;
+
+    switch(selectedType)
+    {
+        case 1: return selectedRoomtype = "One in one";
+        break;
+
+        case 2: return selectedRoomtype = "Two in one";
+        break;
+
+        case 3: return selectedRoomtype = "Three in one";
+        break;
+
+        case 4: return selectedRoomtype = "Four in one";
+        break;
+
+        default: cout << "Select one of the above";
+        break;
     }
 
 }
