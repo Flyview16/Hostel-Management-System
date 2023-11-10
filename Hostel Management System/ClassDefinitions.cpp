@@ -4,13 +4,14 @@
 #include "Functions.h"
 #include <iostream>
 #include <string>
-#include <cstdlib>
-#include <iomanip>
-
+#include <cstdlib>   // system clear
+#include <iomanip>  // setw function
+#include <filesystem>
 
 
 
 using namespace std;
+
 
 // student class methods implementation
 void Student::StudentLogin()
@@ -57,6 +58,11 @@ string Rooms::getRoomType()
 Hostel::Hostel()
 {
     initializeRooms();
+}
+
+void Hostel::createDatafolder()
+{
+
 }
 
 void Hostel::initializeRooms()
@@ -108,7 +114,7 @@ void Hostel::listRoomsByType(string selectedRoomtype)
     // Table columns
     cout << setw(30) << endl;
     cout << left << setw(15) << "Room Number"
-    << setw(20) << "Room Type" <<
+    << setw(20) << "Room Type"
     << setw(25) << "Current Occupants"
     << setw(15) << "Price" << endl;
 

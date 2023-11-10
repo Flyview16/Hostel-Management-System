@@ -40,12 +40,16 @@ class Hostel
 public:
     Hostel();
     void listRoomsByType(string selectedRoomtype);
+
+    // Folder to store room details based on types and room numbers
+    void createDatafolder();
 private:
     //Initializing room types
     vector<string> Roomtype = {"One in one", "Two in one", "Three in one", "Four in one"};
 
     // Vector(dynamic array) to store Room objects
     vector<Rooms> Hostelrooms;
+    string datafolder = "Hostel Room Data";
 
     //Get maximum occupants and price by room type
     void getMaxOccPrice(string& roomtype,int& maxOccupants, double&price);
