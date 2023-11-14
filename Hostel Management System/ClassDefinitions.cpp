@@ -7,10 +7,11 @@
 #include <cstdlib>   // system clear
 #include <iomanip>  // setw function
 #include <filesystem>
-
+#include <fstream>
 
 
 using namespace std;
+namespace fs = std::filesystem;
 
 
 // student class methods implementation
@@ -54,17 +55,53 @@ string Rooms::getRoomType()
     return roomType;
 }
 
+
 //Hostel class methods implementation
 Hostel::Hostel()
 {
+    createDatafolder();
     initializeRooms();
+    savingRoomstoFile();
 }
 
 void Hostel::createDatafolder()
 {
-
+    if(!fs::exists(datafolder))
+    {
+        fs::create_directory(datafolder);
+    }
 }
 
+void Hostel::savingRoomstoFile()
+{
+    //iterate through room vector
+    for(Rooms& room : Hostelrooms)
+    {
+        string roomType = room.getRoomType();
+        int roomNumber = room.getRoomNumber();
+
+        //Creating folder for each room type
+        fs::path roomTypeFolder = fs::path(datafolder) / roomType;
+        if(!fs::exists(roomTypeFolder))
+        {
+            fs::create_directory(roomTypeFolder);
+        }
+
+        //Creating files for each room number under each room type
+        fs::path roomFile= roomTypeFolder / to_string(roomNumber) += ".txt";
+        ofstream file(roomFile);
+        if(file.is_open())
+        {
+            file << "Room type:" << roomType << endl;
+            file << "Room number:" << roomNumber << endl;
+
+            file.close();
+        }else
+        {
+            cerr << "Unable to save room data to file" << endl;
+        }
+    }
+}
 void Hostel::initializeRooms()
 {
      //Create room objects for each room type
@@ -132,5 +169,54 @@ void Hostel::listRoomsByType(string selectedRoomtype)
             << setw(15) << room.getPrice() << endl;
         }
     }
+
+}
+
+bool Hostel::roomNumberExists(int roomNumber)
+{
+    for(Rooms& room : Hostelrooms)
+    {
+        if(room.getRoomNumber() == roomNumber)
+            return true; // The room number exists
+    }
+    return false; // the room number does not exist
+}
+
+
+void Hostel::addNewRoom(int number, string type,int maxoccupant,double price)
+{
+    if(!roomNumberExists(number))
+    {
+        Hostelrooms.push_back(Rooms(number, type, maxoccupant, price));
+        savingRoomstoFile();
+        cout << "\n Room added successfully!!" << endl;
+    }else
+        cout << "\n Ooops!! Room number " << number << " already exists. Choose a different room number" << endl;
+}
+// Manager class methods implementations
+
+void Manager::AddRoom()
+{
+    Hostel hostel;
+    int newRoomNumber;
+    int newMaxOccupants;
+    double newRoomPrice;
+    string newRoomType;
+
+    Systemclear();
+
+    cout << "Select room type:" ;
+    newRoomType = printRoomtypes();
+
+    cout << "Enter maximum number of occupants: ";
+    cin >> newMaxOccupants;
+
+    cout << "Enter new room number: ";
+    cin >> newRoomNumber;
+
+    cout << "Enter new room price: ";
+    cin >> newRoomPrice;
+
+    hostel.addNewRoom(newRoomNumber, newRoomType, newMaxOccupants, newRoomPrice);
 
 }

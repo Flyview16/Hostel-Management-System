@@ -1,0 +1,2 @@
+Room type:Four in one
+Room number:10

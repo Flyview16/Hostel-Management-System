@@ -1,0 +1,2 @@
+Room type:One in one
+Room number:1

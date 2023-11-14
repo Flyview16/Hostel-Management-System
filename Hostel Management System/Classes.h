@@ -15,7 +15,11 @@ public:
 };
 
 //Manager class
-class Manager{};
+class Manager
+{
+public:
+    void AddRoom();
+};
 
 //Rooms class
 class Rooms
@@ -43,6 +47,16 @@ public:
 
     // Folder to store room details based on types and room numbers
     void createDatafolder();
+
+    //Folders and files for each room type
+    void savingRoomstoFile();
+
+    //Adding a room
+    void addNewRoom(int number, string type, int maxoccupant, double price);
+
+    //Check if room number exists
+    bool roomNumberExists(int roomNumber);
+
 private:
     //Initializing room types
     vector<string> Roomtype = {"One in one", "Two in one", "Three in one", "Four in one"};

@@ -1,5 +1,3 @@
-// Function implementations
-
 #include "Functions.h"
 #include "Classes.h"
 #include <iostream>
@@ -32,7 +30,7 @@ void studentLogin()
     newStudent.StudentLogin();
     Hostel hostel;
     int studentoption;
-    cout << "\n\n\n\t\t\t*******************************************************************************\n" << endl;
+    cout << "\n\n\n\t\t\t*******************************************************************************\n";
     cout << "\t\t\t\t\t Welcome to the Student Portal!" << endl;
     cout << "\n\t\t\t*******************************************************************************\n" << endl;
 
@@ -59,6 +57,7 @@ void studentLogin()
 // manager login
 void managerLogin()
 {
+    Manager manager;
     int managerOption;
     cout << "\n\n\n\t\t\t*******************************************************************************\n" << endl;
     cout << "\t\t\t\t\t Welcome to the Manager Portal!" << endl;
@@ -70,6 +69,14 @@ void managerLogin()
     switch(managerOption)
     {
         // Options for various selections
+        case 1 : manager.AddRoom();
+
+        case 5:
+            break;
+
+        default:
+            cout << "\nPlease select one of the options above.\n";
+            break;
     }
 
 }
@@ -108,6 +115,7 @@ string printRoomtypes()
         break;
 
         default: cout << "Select one of the above";
+                 return "Invalid Selection";
         break;
     }
 
