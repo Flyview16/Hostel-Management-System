@@ -10,8 +10,15 @@ using namespace std;
 //Student class
 class Student
 {
+private:
+    string studentName;
+    int studentId;
+    string studentEmail;
+    string studentContact;
+    int selectedRoomNumber;
 public:
     void StudentLogin();
+    void StudentRoomBooking();
 };
 
 //Manager class
@@ -31,9 +38,10 @@ public:
     int getMaxOccupants();
     double getPrice();
     string getRoomType();
+    void increaseCurrentOccupant();
 
 private:
-    int roomNumber, maxOccupants,currentOccupants;
+    int roomNumber, maxOccupants, currentOccupants;
     string roomType;
     double roomPrice;
 };
@@ -57,6 +65,9 @@ public:
     //Check if room number exists
     bool roomNumberExists(int roomNumber);
 
+    // Booking a room
+    void bookingRoom(int roomNumber, string& studentName, int& studentId, string& studentEmail, string& studentContact);
+
 private:
     //Initializing room types
     vector<string> Roomtype = {"One in one", "Two in one", "Three in one", "Four in one"};
@@ -70,6 +81,9 @@ private:
 
     // Create 3 rooms for each room type
     void initializeRooms();
+
+    // Adding Student to room
+    void addStudentToRoom(Rooms& room, string& studentName, int& studentId, string& studentEmail, string& studentContact);
 };
 
 

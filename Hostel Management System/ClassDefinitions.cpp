@@ -23,6 +23,30 @@ void Student::StudentLogin()
     Systemclear();
 }
 
+void Student::StudentRoomBooking()
+{
+    Hostel hostel;
+
+    cout << "\nEnter room number of choice: ";
+    cin >> selectedRoomNumber;
+    cin.ignore();
+
+    cout << "\nEnter student name: ";
+    getline(cin, studentName);
+
+    cout << "\nEnter student Id: ";
+    cin >> studentId;
+    cin.ignore();
+
+    cout << "\nEnter email: ";
+    getline(cin, studentEmail);
+
+    cout << "\nEnter contact info(number): ";
+    cin >> studentContact;
+
+    hostel.bookingRoom(selectedRoomNumber, studentName, studentId, studentEmail, studentContact);
+
+}
 
 // Room class methods implementation
 
@@ -55,6 +79,10 @@ string Rooms::getRoomType()
     return roomType;
 }
 
+void Rooms::increaseCurrentOccupant()
+{
+    currentOccupants++;
+}
 
 //Hostel class methods implementation
 Hostel::Hostel()
@@ -94,6 +122,7 @@ void Hostel::savingRoomstoFile()
         {
             file << "Room type:" << roomType << endl;
             file << "Room number:" << roomNumber << endl;
+            file << "Occupants Details:\n"<< endl;
 
             file.close();
         }else
@@ -193,8 +222,56 @@ void Hostel::addNewRoom(int number, string type,int maxoccupant,double price)
     }else
         cout << "\n Ooops!! Room number " << number << " already exists. Choose a different room number" << endl;
 }
-// Manager class methods implementations
 
+void Hostel::addStudentToRoom(Rooms& room, string& studentName, int& studentId, string& studentEmail, string& studentContact)
+{
+    //Defining the path
+    fs::path roomTypeFolder = fs::path(datafolder) / room.getRoomType();
+
+    fs::path roomFile = roomTypeFolder / (to_string(room.getRoomNumber()) + ".txt");
+
+    //Opening and appending details
+    try
+    {
+        ofstream file(roomFile, ios::app | ios::ate);
+        if(file.is_open())
+        {
+            file << "Student name: " << studentName << endl;
+            file << "Student Id: " << studentId << endl;
+            file << "Student email: " << studentEmail << endl;
+            file << "Student contact: " << studentContact << endl;
+
+            file.flush();
+            file.close();
+        }else
+            cout << "\nUnable to open file for append" << endl;
+        }catch(const exception& e)
+        {
+            cout<< "Unable to open and write to file" << e.what() << endl;
+        }
+}
+
+void Hostel::bookingRoom(int roomNumber, string& studentName, int& studentId, string& studentEmail, string& studentContact)
+{
+    for(Rooms& room : Hostelrooms)
+    {
+        if(room.getRoomNumber() == roomNumber)
+        {
+            //Add student details to room
+            addStudentToRoom(room, studentName, studentId, studentEmail, studentContact);
+
+            // change current occupant status
+            room.increaseCurrentOccupant();
+
+            //savingRoomstoFile();
+            cout << "\nRoom booked successfully!!" << endl;
+            return;
+        }
+    }
+    cerr << "\nError!! Room not found. Make sure room number is part of the list." << endl;     //if loop completes without finding the room
+}
+
+// Manager class methods implementations
 void Manager::AddRoom()
 {
     Hostel hostel;

@@ -35,7 +35,7 @@ void studentLogin()
     cout << "\n\t\t\t*******************************************************************************\n" << endl;
 
     cout << "What would you like to do?:\n 1.View Available Rooms\n 2.Book Room\n 3.View Booked Room\n 4.Exit"<< endl;
-    cout << "\n Select option: "; cin >> studentoption;
+    cout << "\nSelect option: "; cin >> studentoption;
 
     switch(studentoption)
     {
@@ -43,6 +43,7 @@ void studentLogin()
         break;
 
         case 2: hostel.listRoomsByType(printRoomtypes());
+                newStudent.StudentRoomBooking();
         break;
 
         case 4:
