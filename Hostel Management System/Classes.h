@@ -27,6 +27,7 @@ class Manager
 {
 public:
     void AddRoom();
+    void ViewRooms();
 };
 
 //Rooms class
@@ -71,6 +72,9 @@ public:
 
     // Booking a room
     void bookingRoom(int roomNumber, string& studentName, int& studentId, string& studentEmail, string& studentContact);
+
+    // Viewing room details
+    void viewRoomDetails(string roomtype, int roomnumber);
 
 private:
     Hostel();

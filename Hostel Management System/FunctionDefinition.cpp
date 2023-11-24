@@ -6,6 +6,9 @@
 
 using namespace std;
 
+Student newStudent;
+Hostel& hostel = Hostel::getInstance();
+
 // Clear screen
 void Systemclear()
 {
@@ -26,9 +29,8 @@ void Systemclear()
 //Student Login
 void studentLogin()
 {
-    Student newStudent;
+
     newStudent.StudentLogin();
-    Hostel& hostel = Hostel::getInstance();
     int studentoption;
     cout << "\n\n\n\t\t\t*******************************************************************************\n";
     cout << "\t\t\t\t\t Welcome to the Student Portal!" << endl;
@@ -71,9 +73,18 @@ void managerLogin()
     {
         // Options for various selections
         case 1 : manager.AddRoom();
+        break;
+
+        case 2 : manager.ViewRooms();
+
+        break;
+
+        case 3 : hostel.listRoomsByType(printRoomtypes());
+                newStudent.StudentRoomBooking();
+        break;
 
         case 5:
-            break;
+        break;
 
         default:
             cout << "\nPlease select one of the options above.\n";
@@ -89,7 +100,7 @@ string printRoomtypes()
 
     string Roomtypes[] = {"One in one", "Two in one", "Three in one", "Four in one"};
 
-    cout << "\nRoomTypes:" << endl;
+    cout << "\nSelect RoomType:" << endl;
 
     for(int i=0; i< 4; i++)
     {

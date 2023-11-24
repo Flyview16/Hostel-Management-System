@@ -329,6 +329,31 @@ void Hostel::bookingRoom(int roomNumber, string& studentName, int& studentId, st
     cerr << "\nError!! Room not found. Make sure room number is part of the list." << endl;     //if loop completes without finding the room
 }
 
+void Hostel::viewRoomDetails(string roomtype, int roomnumber)
+{
+    fs::path roomFile = fs::path (datafolder) / roomtype / (to_string(roomnumber) + ".txt");
+
+    //Check if file exists
+    if(fs::exists(roomFile))
+    {
+        ifstream file(roomFile);
+        if(file.is_open())
+        {
+            string line;
+            while(getline(file,line))
+            {
+                cout << line << endl;
+            }
+            file.close();
+        }else
+        {
+            cerr << "Unable to open file for reading" << endl;
+        }
+    }else
+    {
+        cerr << "Room not found! Room not found!!" << endl;
+    }
+}
 
 // Manager class methods implementations
 void Manager::AddRoom()
@@ -355,4 +380,23 @@ void Manager::AddRoom()
 
     hostel.addNewRoom(newRoomNumber, newRoomType, newMaxOccupants, newRoomPrice);
 
+}
+
+void Manager::ViewRooms()
+{
+    int selectedRoomnumber;
+    string roomtype;
+    Hostel& hostel = Hostel::getInstance();
+
+    roomtype = printRoomtypes();
+    hostel.listRoomsByType(roomtype);
+
+    cout << "\nEnter room number to view room details: " ;
+    cin >> selectedRoomnumber;
+
+    Systemclear();
+
+    cout << "\nRoom details for room " << selectedRoomnumber << ": \n" << endl;
+
+    hostel.viewRoomDetails(roomtype,selectedRoomnumber);
 }
