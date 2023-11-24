@@ -25,7 +25,7 @@ void Student::StudentLogin()
 
 void Student::StudentRoomBooking()
 {
-    Hostel hostel;
+    Hostel& hostel = Hostel::getInstance();
 
     cout << "\nEnter room number of choice: ";
     cin >> selectedRoomNumber;
@@ -84,12 +84,24 @@ void Rooms::increaseCurrentOccupant()
     currentOccupants++;
 }
 
+void Rooms::updateCurrentOccupant(int newCount)
+{
+    currentOccupants = newCount;
+}
+
+
 //Hostel class methods implementation
 Hostel::Hostel()
 {
     createDatafolder();
     initializeRooms();
-    savingRoomstoFile();
+    savingRoomstoFile(true);
+}
+
+Hostel& Hostel::getInstance()
+{
+    static Hostel instance;
+    return instance;
 }
 
 void Hostel::createDatafolder()
@@ -100,13 +112,14 @@ void Hostel::createDatafolder()
     }
 }
 
-void Hostel::savingRoomstoFile()
+void Hostel::savingRoomstoFile(bool isFreshRun)
 {
     //iterate through room vector
     for(Rooms& room : Hostelrooms)
     {
         string roomType = room.getRoomType();
         int roomNumber = room.getRoomNumber();
+        int currentOccupants = room.getCurrentOccupants();
 
         //Creating folder for each room type
         fs::path roomTypeFolder = fs::path(datafolder) / roomType;
@@ -117,20 +130,64 @@ void Hostel::savingRoomstoFile()
 
         //Creating files for each room number under each room type
         fs::path roomFile= roomTypeFolder / to_string(roomNumber) += ".txt";
-        ofstream file(roomFile);
-        if(file.is_open())
-        {
-            file << "Room type:" << roomType << endl;
-            file << "Room number:" << roomNumber << endl;
-            file << "Occupants Details:\n"<< endl;
 
-            file.close();
-        }else
+        //If file does not exist
+        if(!fs::exists(roomFile))
         {
-            cerr << "Unable to save room data to file" << endl;
+            ofstream file(roomFile);
+            if(file.is_open())
+            {
+                file << "Room type:" << roomType << endl;
+                file << "Room number:" << roomNumber << endl;
+                file << "Current Occupants:"<<currentOccupants <<endl;
+                file << "Occupants Details:\n"<< endl;
+
+                file.close();
+            }
+        }
+        else
+        {
+            //File already exist, read room details and update in program
+            vector<string> filecontent;  //Save current file content to a vector
+            string line;
+
+            ifstream readfile(roomFile);
+            if(readfile.is_open())
+            {
+
+                while(getline(readfile,line))
+                {
+
+                    if(line.find("Current Occupants:") != string::npos)
+                    {
+                       if(isFreshRun)
+                       {
+                            int currentOccupants = stoi(line.substr(line.find(":") + 1));
+                            room.updateCurrentOccupant(currentOccupants);
+                       }else
+                       {
+                           line = "Current Occupants: " + to_string(currentOccupants);
+                       }
+                    }
+                    filecontent.push_back(line);
+                }
+
+                readfile.close();
+            }
+            //Rewrite Details to file
+            ofstream writeFile(roomFile);
+            if(writeFile.is_open())
+            {
+                for(string& line : filecontent)
+                {
+                    writeFile << line << endl;
+                }
+                writeFile.close();
+            }
         }
     }
 }
+
 void Hostel::initializeRooms()
 {
      //Create room objects for each room type
@@ -211,13 +268,14 @@ bool Hostel::roomNumberExists(int roomNumber)
     return false; // the room number does not exist
 }
 
-
 void Hostel::addNewRoom(int number, string type,int maxoccupant,double price)
 {
     if(!roomNumberExists(number))
     {
         Hostelrooms.push_back(Rooms(number, type, maxoccupant, price));
-        savingRoomstoFile();
+
+        savingRoomstoFile(true);
+
         cout << "\n Room added successfully!!" << endl;
     }else
         cout << "\n Ooops!! Room number " << number << " already exists. Choose a different room number" << endl;
@@ -260,10 +318,10 @@ void Hostel::bookingRoom(int roomNumber, string& studentName, int& studentId, st
             //Add student details to room
             addStudentToRoom(room, studentName, studentId, studentEmail, studentContact);
 
-            // change current occupant status
+            //Update room details
             room.increaseCurrentOccupant();
+            savingRoomstoFile(false);
 
-            //savingRoomstoFile();
             cout << "\nRoom booked successfully!!" << endl;
             return;
         }
@@ -271,10 +329,11 @@ void Hostel::bookingRoom(int roomNumber, string& studentName, int& studentId, st
     cerr << "\nError!! Room not found. Make sure room number is part of the list." << endl;     //if loop completes without finding the room
 }
 
+
 // Manager class methods implementations
 void Manager::AddRoom()
 {
-    Hostel hostel;
+    Hostel& hostel = Hostel::getInstance();
     int newRoomNumber;
     int newMaxOccupants;
     double newRoomPrice;

@@ -1,5 +1,5 @@
-#include "Functions.h"
 #include "Classes.h"
+#include "Functions.h"
 #include <iostream>
 #include <cstdlib> // added to use system clear function
 #include <string>
@@ -28,7 +28,7 @@ void studentLogin()
 {
     Student newStudent;
     newStudent.StudentLogin();
-    Hostel hostel;
+    Hostel& hostel = Hostel::getInstance();
     int studentoption;
     cout << "\n\n\n\t\t\t*******************************************************************************\n";
     cout << "\t\t\t\t\t Welcome to the Student Portal!" << endl;
@@ -86,7 +86,6 @@ string printRoomtypes()
 {
     int selectedType;
     string selectedRoomtype;
-    Hostel hostel;
 
     string Roomtypes[] = {"One in one", "Two in one", "Three in one", "Four in one"};
 

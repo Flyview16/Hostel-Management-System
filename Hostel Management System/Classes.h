@@ -1,3 +1,4 @@
+#pragma once
 #ifndef CLASSES_H_INCLUDED
 #define CLASSES_H_INCLUDED
 #include <string>
@@ -39,6 +40,7 @@ public:
     double getPrice();
     string getRoomType();
     void increaseCurrentOccupant();
+    void updateCurrentOccupant(int newCount);
 
 private:
     int roomNumber, maxOccupants, currentOccupants;
@@ -50,14 +52,16 @@ private:
 class Hostel
 {
 public:
-    Hostel();
+    //Function to get single instance of hostel class
+    static Hostel& getInstance();
+
     void listRoomsByType(string selectedRoomtype);
 
     // Folder to store room details based on types and room numbers
     void createDatafolder();
 
     //Folders and files for each room type
-    void savingRoomstoFile();
+    void savingRoomstoFile(bool isFreshRun);
 
     //Adding a room
     void addNewRoom(int number, string type, int maxoccupant, double price);
@@ -69,6 +73,12 @@ public:
     void bookingRoom(int roomNumber, string& studentName, int& studentId, string& studentEmail, string& studentContact);
 
 private:
+    Hostel();
+
+    //Copy constructor and copy assignment operator
+    Hostel(const Hostel&);
+    Hostel& operator = (const Hostel&);
+
     //Initializing room types
     vector<string> Roomtype = {"One in one", "Two in one", "Three in one", "Four in one"};
 
