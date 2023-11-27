@@ -298,6 +298,7 @@ void Hostel::addStudentToRoom(Rooms& room, string& studentName, int& studentId, 
             file << "Student Id: " << studentId << endl;
             file << "Student email: " << studentEmail << endl;
             file << "Student contact: " << studentContact << endl;
+            file << "" << endl;
 
             file.flush();
             file.close();
@@ -343,6 +344,32 @@ void Hostel::viewRoomDetails(string roomtype, int roomnumber)
             while(getline(file,line))
             {
                 cout << line << endl;
+
+                //Print the student data in a table form
+                if(line.find("Occupants Details") != string::npos)
+                {
+                    cout << setw(20) << left << "\nStudent Name"
+                    << setw(20) << left << "Student Id"
+                    << setw(20) << left << "Student Email"
+                    << setw(20) << left << "Student Contact" << endl;
+
+                    while(getline(file, line))
+                    {
+                        if(line.empty())
+                        {
+                            cout << endl;
+                            continue;
+                        }
+
+                        size_t colon = line.find(":");
+                        if(colon != string::npos)
+                        {
+                            string detailValue = line.substr(colon + 1);
+                            cout << setw(20) << left << detailValue;
+                        }
+                    }
+
+                }
             }
             file.close();
         }else
