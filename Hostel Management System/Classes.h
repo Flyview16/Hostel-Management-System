@@ -18,8 +18,8 @@ private:
     string studentContact;
     int selectedRoomNumber;
 public:
-    void StudentLogin();
     void StudentRoomBooking();
+    void StudentViewBooking();
 };
 
 //Manager class
@@ -75,6 +75,9 @@ public:
 
     // Viewing room details
     void viewRoomDetails(string roomtype, int roomnumber);
+
+    //View booking details
+    void viewBookingDetails(int studentId);
 
 private:
     Hostel();

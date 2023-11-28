@@ -30,7 +30,6 @@ void Systemclear()
 void studentLogin()
 {
 
-    newStudent.StudentLogin();
     int studentoption;
     cout << "\n\n\n\t\t\t*******************************************************************************\n";
     cout << "\t\t\t\t\t Welcome to the Student Portal!" << endl;
@@ -46,6 +45,9 @@ void studentLogin()
 
         case 2: hostel.listRoomsByType(printRoomtypes());
                 newStudent.StudentRoomBooking();
+        break;
+
+        case 3: newStudent.StudentViewBooking();
         break;
 
         case 4:

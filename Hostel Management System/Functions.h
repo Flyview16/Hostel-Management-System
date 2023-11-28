@@ -9,4 +9,5 @@ void managerLogin();
 std::string printRoomtypes();
 
 
+
 #endif // FUNCTIONS_H_INCLUDED

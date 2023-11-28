@@ -15,14 +15,6 @@ namespace fs = std::filesystem;
 
 
 // student class methods implementation
-void Student::StudentLogin()
-{
-    string name;
-    cout << "Enter your name: ";
-    cin >> name;
-    Systemclear();
-}
-
 void Student::StudentRoomBooking()
 {
     Hostel& hostel = Hostel::getInstance();
@@ -46,6 +38,20 @@ void Student::StudentRoomBooking()
 
     hostel.bookingRoom(selectedRoomNumber, studentName, studentId, studentEmail, studentContact);
 
+}
+
+void Student::StudentViewBooking()
+{
+    Hostel& hostel = Hostel::getInstance();
+    int studentId;
+
+    cout << "\n\nEnter student id: " ;
+    cin >> studentId;
+
+    Systemclear();
+
+    cout << setw(30) << "Room booking details for " << studentId << ":\n\n" << endl;
+    hostel.viewBookingDetails(studentId);
 }
 
 // Room class methods implementation
@@ -294,10 +300,10 @@ void Hostel::addStudentToRoom(Rooms& room, string& studentName, int& studentId, 
         ofstream file(roomFile, ios::app | ios::ate);
         if(file.is_open())
         {
-            file << "Student name: " << studentName << endl;
-            file << "Student Id: " << studentId << endl;
-            file << "Student email: " << studentEmail << endl;
-            file << "Student contact: " << studentContact << endl;
+            file << "Student name:" << studentName << endl;
+            file << "Student Id:" << studentId << endl;
+            file << "Student email:" << studentEmail << endl;
+            file << "Student contact:" << studentContact << endl;
             file << "" << endl;
 
             file.flush();
@@ -382,6 +388,48 @@ void Hostel::viewRoomDetails(string roomtype, int roomnumber)
     }
 }
 
+void Hostel::viewBookingDetails(int studentId)
+{
+    bool foundbooking = false;
+
+    for(Rooms& room : Hostelrooms)
+    {
+        fs::path roompath = fs::path (datafolder) / room.getRoomType() / (to_string(room.getRoomNumber()) + ".txt");
+        ifstream roomfile(roompath);
+        if(roomfile.is_open())
+        {
+            string line;
+            while(getline(roomfile,line))
+            {
+                size_t colon = line.find(":");
+                if(colon != string::npos)
+                {
+                    string detailName = line.substr(0,colon);
+                    string detailValue = line.substr(colon + 1);
+
+                    if(detailName == "Student Id" && detailValue == to_string(studentId))
+                    {
+                        viewRoomDetails(room.getRoomType(), room.getRoomNumber());
+                        foundbooking = true;
+                        break;
+                    }
+                }
+            }
+            roomfile.close();
+        }
+        else
+        {
+            cerr << "Unable to open room details file." << endl;
+        }
+    }
+    if(!foundbooking)
+    {
+        // If no matching booking details found
+        cout << "No Booking Found !!" << endl;
+    }
+}
+
+
 // Manager class methods implementations
 void Manager::AddRoom()
 {
@@ -423,7 +471,7 @@ void Manager::ViewRooms()
 
     Systemclear();
 
-    cout << "\nRoom details for room " << selectedRoomnumber << ": \n" << endl;
+    cout << "\nRoom details for Room " << selectedRoomnumber << ": \n" << endl;
 
     hostel.viewRoomDetails(roomtype,selectedRoomnumber);
 }

@@ -19,7 +19,6 @@ int main()
     Systemclear();
     if(userlogin == 1)
     {
-
         studentLogin();
     }else if(userlogin == 2)
     {
