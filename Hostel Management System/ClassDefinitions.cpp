@@ -8,6 +8,7 @@
 #include <iomanip>  // setw function
 #include <filesystem>
 #include <fstream>
+#include <algorithm>
 
 
 using namespace std;
@@ -429,6 +430,39 @@ void Hostel::viewBookingDetails(int studentId)
     }
 }
 
+fs::path Hostel::getroomFilepath(Rooms& room)
+{
+    return fs::path (datafolder) / room.getRoomType() / (to_string(room.getRoomNumber())+ ".txt");
+}
+
+void Hostel::removeRoom(int roomnumber)
+{
+    //Iterate through rooms to find room with room number using Lambda function
+    auto check = find_if(Hostelrooms.begin(),Hostelrooms.end(),[roomnumber](Rooms& room)
+                         {
+                             return room.getRoomNumber() == roomnumber;
+                         });
+
+    // Check if room number was found
+    if(check != Hostelrooms.end())
+    {
+        // Get path associated with file
+        fs::path roomFilepath = getroomFilepath(*check);
+
+        // Remove the room from vector
+        Hostelrooms.erase(check);
+
+        // Delete associated file
+        fs::remove(roomFilepath);
+
+        cout << "Room " << roomnumber << " removed successfully.!" << endl;
+
+        savingRoomstoFile(true);
+    }else
+    {
+        cerr << "Room" << roomnumber << " not found.!!" << endl;
+    }
+}
 
 // Manager class methods implementations
 void Manager::AddRoom()
@@ -474,4 +508,17 @@ void Manager::ViewRooms()
     cout << "\nRoom details for Room " << selectedRoomnumber << ": \n" << endl;
 
     hostel.viewRoomDetails(roomtype,selectedRoomnumber);
+}
+
+void Manager::RemoveRoom()
+{
+    Hostel& hostel = Hostel::getInstance();
+    int roomnumber;
+
+    hostel.listRoomsByType(printRoomtypes());
+
+    cout << "\n\nEnter room number to be removed: ";
+    cin >> roomnumber;
+
+    hostel.removeRoom(roomnumber);
 }

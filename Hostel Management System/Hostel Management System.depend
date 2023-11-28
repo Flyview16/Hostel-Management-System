@@ -4,11 +4,12 @@
 	"Classes.h"
 	"Functions.h"
 
-1701178273 c:\herbert\projects\c++\hostel management system\classes.h
+1701186480 c:\herbert\projects\c++\hostel management system\classes.h
 	<string>
 	<vector>
+	<filesystem>
 
-1701179710 source:c:\herbert\projects\c++\hostel management system\classdefinitions.cpp
+1701187238 source:c:\herbert\projects\c++\hostel management system\classdefinitions.cpp
 	"Classes.h"
 	"Functions.h"
 	<iostream>
@@ -17,11 +18,12 @@
 	<iomanip>
 	<filesystem>
 	<fstream>
+	<algorithm>
 
 1701171952 c:\herbert\projects\c++\hostel management system\functions.h
 	<string>
 
-1701178273 source:c:\herbert\projects\c++\hostel management system\functiondefinition.cpp
+1701187285 source:c:\herbert\projects\c++\hostel management system\functiondefinition.cpp
 	"Classes.h"
 	"Functions.h"
 	<iostream>

@@ -68,7 +68,7 @@ void managerLogin()
     cout << "\t\t\t\t\t Welcome to the Manager Portal!" << endl;
     cout << "\n\t\t\t*******************************************************************************\n" << endl;
 
-    cout << "What would you like to do?:\n 1.Add Room\n 2.View Rooms\n 3.Add Student to Room\n 4.Remove Student\n 5.Exit"<< endl;
+    cout << "What would you like to do?:\n 1.Add Room\n 2.View Rooms\n 3.Add Student to Room\n 4.Remove Room\n 5.Exit"<< endl;
     cout << "\n Select option: "; cin >> managerOption;
 
     switch(managerOption)
@@ -83,6 +83,9 @@ void managerLogin()
 
         case 3 : hostel.listRoomsByType(printRoomtypes());
                 newStudent.StudentRoomBooking();
+        break;
+
+        case 4: manager.RemoveRoom();
         break;
 
         case 5:

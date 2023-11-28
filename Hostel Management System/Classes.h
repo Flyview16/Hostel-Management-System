@@ -3,6 +3,8 @@
 #define CLASSES_H_INCLUDED
 #include <string>
 #include <vector>
+#include <filesystem>
+
 
 using namespace std;
 
@@ -28,6 +30,7 @@ class Manager
 public:
     void AddRoom();
     void ViewRooms();
+    void RemoveRoom();
 };
 
 //Rooms class
@@ -79,6 +82,9 @@ public:
     //View booking details
     void viewBookingDetails(int studentId);
 
+    //Removing a room
+    void removeRoom(int roomnumber);
+
 private:
     Hostel();
 
@@ -101,6 +107,9 @@ private:
 
     // Adding Student to room
     void addStudentToRoom(Rooms& room, string& studentName, int& studentId, string& studentEmail, string& studentContact);
+
+    //Get room file path
+    filesystem::path getroomFilepath(Rooms& room);
 };
 
 
