@@ -13,7 +13,7 @@ Hostel& hostel = Hostel::getInstance();
 void Systemclear()
 {
     char anykey;
-    cout << "Press any key to continue...";
+    cout << "\n\nPress enter to continue...";
     anykey = cin.get();
 
     //get user to press enter
@@ -31,32 +31,34 @@ void studentLogin()
 {
 
     int studentoption;
-    cout << "\n\n\n\t\t\t*******************************************************************************\n";
-    cout << "\t\t\t\t\t Welcome to the Student Portal!" << endl;
-    cout << "\n\t\t\t*******************************************************************************\n" << endl;
+    while(true){
+        Systemclear();
+        cout << "\n\n\n\t\t\t*******************************************************************************\n";
+        cout << "\t\t\t\t\t Welcome to the Student Portal!" << endl;
+        cout << "\n\t\t\t*******************************************************************************\n" << endl;
 
-    cout << "What would you like to do?:\n 1.View Available Rooms\n 2.Book Room\n 3.View Booked Room\n 4.Exit"<< endl;
-    cout << "\nSelect option: "; cin >> studentoption;
+        cout << "What would you like to do?:\n 1.View Available Rooms\n 2.Book Room\n 3.View Booked Room\n 4.Exit"<< endl;
+        cout << "\nSelect option: "; cin >> studentoption;
 
-    switch(studentoption)
-    {
-        case 1: hostel.listRoomsByType(printRoomtypes());
-        break;
+        switch(studentoption)
+        {
+            case 1: hostel.listRoomsByType(printRoomtypes());
+            break;
 
-        case 2: hostel.listRoomsByType(printRoomtypes());
-                newStudent.StudentRoomBooking();
-        break;
+            case 2: hostel.listRoomsByType(printRoomtypes());
+                    newStudent.StudentRoomBooking();
+            break;
 
-        case 3: newStudent.StudentViewBooking();
-        break;
+            case 3: newStudent.StudentViewBooking();
+            break;
 
-        case 4:
-        break;
+            case 4:
+            return; // Exit the loop
 
-        default: cout << "Please select one of the above" << endl;
-        break;
+            default: cout << "Please select one of the above" << endl;
+            break;
+        }
     }
-
 }
 
 // manager login
@@ -64,38 +66,40 @@ void managerLogin()
 {
     Manager manager;
     int managerOption;
-    cout << "\n\n\n\t\t\t*******************************************************************************\n" << endl;
-    cout << "\t\t\t\t\t Welcome to the Manager Portal!" << endl;
-    cout << "\n\t\t\t*******************************************************************************\n" << endl;
 
-    cout << "What would you like to do?:\n 1.Add Room\n 2.View Rooms\n 3.Add Student to Room\n 4.Remove Room\n 5.Exit"<< endl;
-    cout << "\n Select option: "; cin >> managerOption;
+    while (true){
+        Systemclear();
+        cout << "\n\n\n\t\t\t*******************************************************************************\n" << endl;
+        cout << "\t\t\t\t\t Welcome to the Manager Portal!" << endl;
+        cout << "\n\t\t\t*******************************************************************************\n" << endl;
 
-    switch(managerOption)
-    {
-        // Options for various selections
-        case 1 : manager.AddRoom();
-        break;
+        cout << "What would you like to do?:\n 1.Add Room\n 2.View Rooms\n 3.Add Student to Room\n 4.Remove Room\n 5.Exit"<< endl;
+        cout << "\n Select option: "; cin >> managerOption;
 
-        case 2 : manager.ViewRooms();
-
-        break;
-
-        case 3 : hostel.listRoomsByType(printRoomtypes());
-                newStudent.StudentRoomBooking();
-        break;
-
-        case 4: manager.RemoveRoom();
-        break;
-
-        case 5:
-        break;
-
-        default:
-            cout << "\nPlease select one of the options above.\n";
+        switch(managerOption)
+        {
+            // Options for various selections
+            case 1 : manager.AddRoom();
             break;
-    }
 
+            case 2 : manager.ViewRooms();
+            break;
+
+            case 3 : hostel.listRoomsByType(printRoomtypes());
+                    newStudent.StudentRoomBooking();
+            break;
+
+            case 4: manager.RemoveRoom();
+            break;
+
+            case 5:
+            return;  //Exit the loop
+
+            default:
+                cout << "\nPlease select one of the options above.\n";
+                break;
+        }
+    }
 }
 
 string printRoomtypes()

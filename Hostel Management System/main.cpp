@@ -16,7 +16,6 @@ int main()
     cout << "Select option: ";
     cin >> userlogin;
 
-    Systemclear();
     if(userlogin == 1)
     {
         studentLogin();

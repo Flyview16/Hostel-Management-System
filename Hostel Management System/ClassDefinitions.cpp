@@ -475,7 +475,6 @@ void Manager::AddRoom()
 
     Systemclear();
 
-    cout << "Select room type:" ;
     newRoomType = printRoomtypes();
 
     cout << "Enter maximum number of occupants: ";
