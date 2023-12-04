@@ -2,35 +2,46 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="ClassDefinitions.cpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="10341" topLine="62" />
+			<Cursor1 position="550" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="ClassDefinitions.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="13495" topLine="12" />
 		</Cursor>
 		<Folding>
-			<Collapse line="18" />
-			<Collapse line="26" />
-			<Collapse line="52" />
-			<Collapse line="57" />
-			<Collapse line="62" />
-			<Collapse line="67" />
-			<Collapse line="72" />
-			<Collapse line="77" />
-			<Collapse line="82" />
-			<Collapse line="87" />
+			<Collapse line="19" />
+			<Collapse line="44" />
 			<Collapse line="94" />
 			<Collapse line="101" />
-			<Collapse line="107" />
-			<Collapse line="115" />
-			<Collapse line="191" />
-			<Collapse line="209" />
+			<Collapse line="108" />
+			<Collapse line="114" />
+			<Collapse line="122" />
+			<Collapse line="186" />
+			<Collapse line="198" />
+			<Collapse line="208" />
+			<Collapse line="216" />
 			<Collapse line="234" />
-			<Collapse line="261" />
-			<Collapse line="271" />
-			<Collapse line="284" />
-			<Collapse line="313" />
-			<Collapse line="333" />
+			<Collapse line="241" />
+			<Collapse line="255" />
+			<Collapse line="268" />
+			<Collapse line="270" />
+			<Collapse line="278" />
+			<Collapse line="291" />
+			<Collapse line="299" />
+			<Collapse line="320" />
+			<Collapse line="324" />
+			<Collapse line="340" />
 			<Collapse line="386" />
-			<Collapse line="412" />
+			<Collapse line="392" />
+			<Collapse line="411" />
+			<Collapse line="433" />
+			<Collapse line="438" />
+			<Collapse line="468" />
+			<Collapse line="493" />
+			<Collapse line="512" />
 		</Folding>
 	</File>
 	<File name="Functions.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -38,26 +49,19 @@
 			<Cursor1 position="165" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="FunctionDefinition.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="31" topLine="0" />
+			<Cursor1 position="320" topLine="0" />
 		</Cursor>
+		<Folding>
+			<Collapse line="30" />
+			<Collapse line="65" />
+			<Collapse line="105" />
+		</Folding>
 	</File>
 	<File name="Classes.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1681" topLine="35" />
 		</Cursor>
-		<Folding>
-			<Collapse line="12" />
-		</Folding>
-	</File>
-	<File name="FunctionDefinition.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2213" topLine="58" />
-		</Cursor>
-		<Folding>
-			<Collapse line="13" />
-			<Collapse line="96" />
-		</Folding>
 	</File>
 </CodeBlocks_layout_file>
