@@ -11,18 +11,18 @@ The Hostel Management System is a C++ program designed to manage the operations 
 
 
 ### Getting Started
-1. Clone the repository:
+1. *Clone the repository:*
 
    ```bash
 
    git clone https://github.com/Flyview16/Hostel-Management-System/tree/master/Hostel%20Management%20System
 
-2. Compile the program:
+2. *Compile the program:*
     
     ```bash
     g++ main.cpp FunctionDefinition.cpp ClassDefinitions.cpp -o bin/debug/hostel_management_system
 
-3. Run the executable program:
+3. *Run the executable program:*
 - On Windows:
 
     ```bash
@@ -39,8 +39,10 @@ If you would like to contribute to the development of the Hostel Management Syst
 
 1. Fork the repository.
 2. Create a new branch for your feature: git checkout -b feature-name.
-3. Commit your changes: ```bash
-                         git commit -m 'Add new feature'.
-4. Push to the branch: ```bash 
-                        git push origin feature-name.
+3. Commit your changes:  git commit -m 'Add new feature'.
+4. Push to the branch:  git push origin feature-name.
 5. Submit a pull request.
+
+<p align = "center">
+<img src="https://github.com/Flyview16/Flutter-Learning-Projects/blob/main/Flutter%20Projects/icons/icons8-dart-96.png" alt ="Dart Icon">
+</p>
