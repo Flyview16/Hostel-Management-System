@@ -12,7 +12,28 @@ The Hostel Management System is a C++ program designed to manage the operations 
 
 ### Getting Started
 1. Clone the repository:
+
    ```bash
+
    git clone https://github.com/Flyview16/Hostel-Management-System/tree/master/Hostel%20Management%20System
 
-2. Compile and run the program:
+
+2. Compile the program:
+    
+    ```bash
+    g++ main.cpp FunctionDefinition.cpp ClassDefinitions.cpp -o bin/debug/hostel_management_system
+
+3. Run the executable program:
+- On Windows:
+
+    ```bash
+    bin/debug/hostel_management_system.exe
+
+- On Linux or macOS:
+
+    ```bash
+    ./bin/debug/hostel_management_system
+
+    
+
+
