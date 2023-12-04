@@ -24,16 +24,12 @@ The Hostel Management System is a C++ program designed to manage the operations 
     g++ main.cpp FunctionDefinition.cpp ClassDefinitions.cpp -o bin/debug/hostel_management_system
 
 3. Run the executable program:
-- On Windows:
+    - On Windows:
 
     ```bash
     bin/debug/hostel_management_system.exe
 
-- On Linux or macOS:
+    - On Linux or macOS:
 
     ```bash
     ./bin/debug/hostel_management_system
-
-    
-
-
