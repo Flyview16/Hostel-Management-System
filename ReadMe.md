@@ -18,8 +18,8 @@ pre.copyable {
   border: 1px solid #ccc;
   padding: 5px;
   user-select: text;
-}
+}   
 ```bash
-    git clone https://github.com/Flyview16/Hostel-Management-System/tree/master/Hostel%20Management%20System
+    git clone [https://github.com/Flyview16/Hostel-Management-System/tree/master/Hostel%20Management%20System](ttps://github.com/Flyview16/Hostel-Management-System/tree/master/Hostel%20Management%20System)
 
 2. Compile and run the program:
