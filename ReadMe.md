@@ -12,14 +12,8 @@ The Hostel Management System is a C++ program designed to manage the operations 
 
 ### Getting Started
 1. Clone the repository:
-```css
-pre.copyable {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 5px;
-  user-select: text;
-}   
 ```bash
-    git clone [https://github.com/Flyview16/Hostel-Management-System/tree/master/Hostel%20Management%20System](ttps://github.com/Flyview16/Hostel-Management-System/tree/master/Hostel%20Management%20System)
-
+<div style="background-color: #fff; border: 1px solid #ccc; padding: 5px; user-select: text;">
+    git clone [https://github.com/Flyview16/Hostel-Management-System/tree/master/Hostel%20Management%20System](https://github.com/Flyview16/Hostel-Management-System/tree/master/Hostel%20Management%20System): [https://github.com/Flyview16/Hostel-Management-System/tree/master/Hostel%20Management%20System](https://github.com/Flyview16/Hostel-Management-System/tree/master/Hostel%20Management%20System): [https://github.com/Flyview16/Hostel-Management-System/tree/master/Hostel%20Management%20System](https://github.com/Flyview16/Hostel-Management-System/tree/master/Hostel%20Management%20System): [https://github.com/Flyview16/Hostel-Management-System/tree/master/Hostel%20Management%20System](https://github.com/Flyview16/Hostel-Management-System/tree/master/Hostel%20Management%20System)
+</div>
 2. Compile and run the program:
