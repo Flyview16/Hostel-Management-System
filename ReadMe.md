@@ -9,6 +9,9 @@ The Hostel Management System is a C++ program designed to manage the operations 
 - Room Allocation: The system ensures proper room allocation and keeps track of the current number of occupants in each room.
 - Data Persistence: Hostel data, including room details and bookings, is stored in text files, allowing the system to maintain state between runs.
 
+
+### Getting Started
+1. Clone the repository:
 ```css
 pre.copyable {
   background-color: #fff;
@@ -16,10 +19,7 @@ pre.copyable {
   padding: 5px;
   user-select: text;
 }
-
-### Getting Started
-1. Clone the repository:
-'''bash
-    git clone https://github.com/Flyview16/Hostel-Management-System/tree/master/Hostel%20Management%20System'''
+```bash
+    git clone https://github.com/Flyview16/Hostel-Management-System/tree/master/Hostel%20Management%20System
 
 2. Compile and run the program:
