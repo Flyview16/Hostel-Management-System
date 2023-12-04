@@ -7,7 +7,7 @@ The Hostel Management System is a C++ program designed to manage the operations 
 - Student portal: Students can view available rooms, book a room, and check their booked room details.
 - Manager portal: Managers can perform various tasks, including adding new rooms, viewing room details, and removing rooms from the hostel.
 - Room Allocation: The system ensures proper room allocation and keeps track of the current number of occupants in each room.
-- Data Persistence: Hostel data, including room details and bookings, is stored in text files, allowing the system to maintain state between runs.This also implements the [`Singleton Pattern{background-color: grey}`](https://www.digitalocean.com/community/tutorials/java-singleton-design-pattern-best-practices-examples).
+- Data Persistence: Hostel data, including room details and bookings, is stored in text files, allowing the system to maintain state between runs.This also implements the [`Singleton Pattern`](https://www.digitalocean.com/community/tutorials/java-singleton-design-pattern-best-practices-examples).
 
 
 ### Getting Started
@@ -39,12 +39,12 @@ If you would like to contribute to the development of the Hostel Management Syst
 
 1. Fork the repository.
 2. Create a new branch for your feature: git checkout -b feature-name.
-3. Commit your changes: `git commit -m 'Add new feature'{background-color: grey}`.
-4. Push to the branch:  `git push origin feature-name{backgroung-color: grey}`.
+3. Commit your changes: `git commit -m 'Add new feature'`.
+4. Push to the branch:  `git push origin feature-name`.
 5. Submit a pull request.
 
 ### Issues
-This project uses `filesystem{background-color: grey}` which is available in C++17 versions and above so be sure to include the compiler flags which uses this version of C++.
+This project uses `filesystem{background-color: grey}` which is available in C++17 versions and above so be sure to include the compiler flags which uses this version of C++.Feel free to open issues if you encounter any challenges.
 
 <p align = "center">
 <img width="48" height="48" src="https://img.icons8.com/fluency/144/c-plus-plus-logo.png" alt="c-plus-plus-logo"/>
