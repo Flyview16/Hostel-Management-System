@@ -22,12 +22,12 @@ The Hostel Management System is a C++ program designed to manage the operations 
     ```bash
     cd "Hostel Management System"
 
-2. *Compile the program:*
+3. *Compile the program:*
     
     ```bash
     g++ main.cpp FunctionDefinition.cpp ClassDefinitions.cpp -o bin/debug/hostel_management_system
 
-3. *Run the executable program:*
+4. *Run the executable program:*
 - On Windows:
 
     ```bash
