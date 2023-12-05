@@ -17,6 +17,11 @@ The Hostel Management System is a C++ program designed to manage the operations 
 
    git clone https://github.com/Flyview16/Hostel-Management-System.git
 
+2. Open terminal in local repo directory and navigate to project directory
+
+    ```bash
+    cd "Hostel Management System"
+
 2. *Compile the program:*
     
     ```bash
@@ -32,7 +37,6 @@ The Hostel Management System is a C++ program designed to manage the operations 
 
     ```bash
     ./bin/debug/hostel_management_system
-
 
 ### Contributing
 If you would like to contribute to the development of the Hostel Management System, please follow these steps:
