@@ -7,7 +7,7 @@ The Hostel Management System is a C++ program designed to manage the operations 
 - *Student portal*: Students can view available rooms, book a room, and check their booked room details.
 - *Manager portal*: Managers can perform various tasks, including adding new rooms, viewing room details, and removing rooms from the hostel.
 - *Room Allocation*: The system ensures proper room allocation and keeps track of the current number of occupants in each room.
-- *Data Persistence*: Hostel data, including room details and bookings, is stored in text files, allowing the system to maintain state between runs.This also implements the [`Singleton Pattern`](https://www.digitalocean.com/community/tutorials/java-singleton-design-pattern-best-practices-examples).
+- *Data Persistence*: Hostel data, including room details and bookings, is stored in text files, allowing the system to maintain state between runs.This also implements the [`Singleton Pattern`](https://www.digitalocean.com/community/tutorials/java-singleton-design-pattern-best-practices-examples)
 
 
 ### Getting Started
@@ -15,7 +15,7 @@ The Hostel Management System is a C++ program designed to manage the operations 
 
    ```bash
 
-   git clone https://github.com/Flyview16/Hostel-Management-System/tree/master/Hostel%20Management%20System
+   git clone https://github.com/Flyview16/Hostel-Management-System.git
 
 2. *Compile the program:*
     
@@ -39,8 +39,8 @@ If you would like to contribute to the development of the Hostel Management Syst
 
 1. Fork the repository.
 2. Create a new branch for your feature: git checkout -b feature-name.
-3. Commit your changes: `git commit -m 'Add new feature'`.
-4. Push to the branch:  `git push origin feature-name`.
+3. Commit your changes: `git commit -m 'Add new feature'`
+4. Push to the branch:  `git push origin feature-name`
 5. Submit a pull request.
 
 ### Issues
